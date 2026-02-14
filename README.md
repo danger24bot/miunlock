@@ -1,6 +1,6 @@
 <div align="center">
 
-# ⚡ MiCommunityTool
+# ⚡MiCommunityTool
 
 ### Bootloader Unlock Permission Installer
 
