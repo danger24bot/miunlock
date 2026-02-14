@@ -14,7 +14,7 @@ clear
 echo -e "${CYAN}"
 echo "╔══════════════════════════════════════╗"
 echo "║     ⚡ Mi Community Bootloader ⚡      ║"
-echo "║       Unlock Permission Installer    ║"
+echo "║      Unlock Permission Installer       ║"
 echo "╚══════════════════════════════════════╝"
 echo -e "${RESET}"
 
