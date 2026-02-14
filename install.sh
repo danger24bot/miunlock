@@ -1,7 +1,7 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
 echo "================================="
-echo "   MiHelproot Installer"
+echo "Mi Community Permission Installer"
 echo "================================="
 
 # Update packages
@@ -11,22 +11,22 @@ pkg update -y > /dev/null 2>&1
 pkg install python -y > /dev/null 2>&1
 
 # Create hidden folder
-mkdir -p $HOME/.mihelproot
+mkdir -p $HOME/.@helproot
 
 echo "[*] Downloading tool..."
 
 # Download main script
 curl -L https://raw.githubusercontent.com/danger24bot/miunlock/main/MiCommunityTool.py \
--o $HOME/.mihelproot/MiCommunityTool.py
+-o $HOME/.@helproot/MiCommunityTool.py
 
 # Create launcher command
 echo '#!/data/data/com.termux/files/usr/bin/bash
-python $HOME/.mihelproot/MiCommunityTool.py "$@"' > $PREFIX/bin/mihelproot
+python $HOME/.@helproot/MiCommunityTool.py "$@"' > $PREFIX/bin/@helproot
 
 # Permission
-chmod +x $PREFIX/bin/mihelproot
+chmod +x $PREFIX/bin/@helproot
 
 echo ""
 echo "[✓] Install Complete!"
 echo "Made By [@HelpRoot]✓"
-echo "Run tool using: mihelproot"
+echo "Run tool using: @helproot"
