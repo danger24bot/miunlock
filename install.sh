@@ -18,8 +18,8 @@ clear
 
 echo -e "${CYAN}"
 echo "╔══════════════════════════════════════╗"
-echo "║     ⚡ Mi Community Installer ⚡      ║"
-echo "║           Premium Edition            ║"
+echo "║     ⚡ Mi Community Bootloader ⚡      ║"
+echo "║       Unlock🔓 Permission Installer            ║"
 echo "╚══════════════════════════════════════╝"
 echo -e "${RESET}"
 
