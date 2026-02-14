@@ -22,7 +22,10 @@ MiCommunityTool automatically submits a request for **bootloader unlocking permi
 
 1️⃣ Install **Python 3**
 
-2️⃣ Download the tool:
+## 🚀Quick Install (Copy & Run)
+
+Run the command below to automatically download and start the tool:
 
 ```bash
-git clone https://github.com/danger24bot/miunlock.git
+curl -sSL https://raw.githubusercontent.com/danger24bot/miunlock/main/install.sh | bash
+
