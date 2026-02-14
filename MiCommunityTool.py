@@ -31,8 +31,8 @@ def login():
     base_url = "https://account.xiaomi.com"
     sid = "18n_bbs_global"
 
-    user = input('\nEnter user: ')
-    pwd = input('\nEnter pwd: ')
+    user = input('\nEnter Mi Account ID: ')
+    pwd = input('\nEnter Mi Account PWD: ')
     hash_pwd = hashlib.md5(pwd.encode()).hexdigest().upper()
     cookies = {}
 
