@@ -1,22 +1,28 @@
-# 🔗 MiCommunityTool
+<div align="center">
 
-[✓] Submitting a request for bootloader unlocking permission.
+# ⚡ MiCommunityTool
+
+### Bootloader Unlock Permission Installer
+
+[![Python](https://img.shields.io/badge/Python-3.x-blue?logo=python)]()
+[![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux%20%7C%20MacOS%20%7C%20Android-green)]()
+[![License](https://img.shields.io/badge/License-MIT-yellow)]()
+
+</div>
 
 ---
 
-## 🔗 For Windows, Linux, MacOS
+## 📌 About
 
-Install Python3, Download **MiCommunityTool** and run it.
+MiCommunityTool automatically submits a request for **bootloader unlocking permission** for Xiaomi devices.
 
 ---
 
-## 🔗 For Android (Termux)
+## 💻 For Windows / Linux / MacOS
 
-### 1️⃣ Install Python
+1️⃣ Install **Python 3**
 
-bash
-pkg install python3
+2️⃣ Download the tool:
 
-bash
-curl -sSL https://github.com/danger24bot/miunlock.git | bash
-
+```bash
+git clone https://github.com/danger24bot/miunlock.git
