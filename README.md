@@ -14,13 +14,11 @@
 
 ## 📌 About
 
-MiCommunityTool automatically submits a request for **bootloader unlocking permission** for Xiaomi devices.
+MiCommunityTool Automatically Submits a Request for **Bootloader Unlocking Permission** for HyperOS Xiaomi devices.
 
 ---
 
-## 💻 For Windows / Linux / MacOS
-
-1️⃣ Install **Python 3**
+## 1️⃣ Install **Python 3**
 ```
 pkg install python3
 ```
