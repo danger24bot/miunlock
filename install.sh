@@ -1,10 +1,5 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
-# ================================
-#      Mi Community Installer
-#        Premium Edition
-# ================================
-
 # Colors
 RED='\033[1;31m'
 GREEN='\033[1;32m'
@@ -19,7 +14,7 @@ clear
 echo -e "${CYAN}"
 echo "╔══════════════════════════════════════╗"
 echo "║     ⚡ Mi Community Bootloader ⚡      ║"
-echo "║       Unlock🔓 Permission Installer            ║"
+echo "║       Unlock🔓 Permission Installer    ║"
 echo "╚══════════════════════════════════════╝"
 echo -e "${RESET}"
 
