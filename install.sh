@@ -56,7 +56,7 @@ chmod +x $PREFIX/bin/@helproot
 
 echo ""
 echo -e "${GREEN}╔══════════════════════════════════════╗"
-echo -e "║          ✅ INSTALL COMPLETE          ║"
+echo -e "║          ✅ INSTALL COMPLETE         ║"
 echo -e "╚══════════════════════════════════════╝${RESET}"
 echo -e "${WHITE}Made By: ${CYAN}@HelpRoot${RESET}"
 echo -e "${YELLOW}Run tool using:${RESET} ${GREEN}@helproot${RESET}"
