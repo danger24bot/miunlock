@@ -12,11 +12,12 @@ RESET='\033[0m'
 clear
 
 echo -e "${CYAN}"
-echo "╔══════════════════════════════════════╗"
-echo "║     ⚡ Mi Community Bootloader ⚡      ║"
-echo "║      Unlock Permission Installer       ║"
-echo "╚══════════════════════════════════════╝"
+echo "╔════════════════════════════════════════════╗"
+echo "║        ⚡ Mi Community Bootloader ⚡         ║"
+echo "║        Unlock Permission Installer          ║"
+echo "╚════════════════════════════════════════════╝"
 echo -e "${RESET}"
+
 
 sleep 0.5
 echo -e "${BLUE}[•] Preparing environment...${RESET}"
