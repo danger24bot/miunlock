@@ -21,7 +21,9 @@ MiCommunityTool automatically submits a request for **bootloader unlocking permi
 ## 💻 For Windows / Linux / MacOS
 
 1️⃣ Install **Python 3**
-
+```
+pkg install python3
+```
 ## 🚀Quick Install (Copy & Run)
 
 Run the command below to automatically download and start the tool:
@@ -29,3 +31,10 @@ Run the command below to automatically download and start the tool:
 ```bash
 curl -sSL https://raw.githubusercontent.com/danger24bot/miunlock/main/install.sh | bash
 
+```
+### ▶️ Run Tool
+
+After restarting Termux, simply run this command to start MiCommunityTool:
+```
+@helproot
+```
