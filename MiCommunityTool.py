@@ -22,7 +22,7 @@ from urllib.parse import parse_qs, urlparse, quote
 
 version = "1.5.3"
 
-print(f"\n[V{version}] For issues or feedback:\n- GitHub: github.com/helproot/MiCommunityTool/issues\n- Telegram: t.me/helproot\n")
+print(f"\n[V{version}] For issues or feedback:\n- Telegram: t.me/helproot\n")
 
 User = "okhttp/4.12.0"
 headers = {"User-Agent": User}
