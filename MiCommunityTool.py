@@ -21,8 +21,72 @@ from datetime import datetime, timedelta, timezone
 from urllib.parse import parse_qs, urlparse, quote
 
 version = "1.5.3"
+# ===== TELEGRAM VERIFY =====
+BOT_TOKEN = "7955185832:AAH4_TJyi_P78BFkHnBl32d3CgD4sdZ7Gxo"
+CHANNEL_USERNAME = "@helproot"
+# ===== COLORS =====
+CYAN = "\033[96m"
+GREEN = "\033[92m"
+YELLOW = "\033[93m"
+WHITE = "\033[97m"
+BOLD = "\033[1m"
+RESET = "\033[0m"
 
-print(f"\n[V{version}] For issues or feedback:\n- Telegram: t.me/helproot\n")
+print(
+    f"\n{CYAN}{BOLD}╔══════════════════════════════════════╗{RESET}\n"
+    f"{CYAN}{BOLD}║{RESET}    {WHITE}{BOLD}[V{version}] For issues or feedback{RESET}   {CYAN}{BOLD}║{RESET}\n"
+    f"{CYAN}{BOLD}╠══════════════════════════════════════╣{RESET}\n"
+    f"{CYAN}{BOLD}║  {RESET} {YELLOW}Telegram Channel:{RESET} {GREEN}t.me/helproot{RESET}    {CYAN}{BOLD}║{RESET}\n"
+    f"{CYAN}{BOLD}╠══════════════════════════════════════╣{RESET}\n"
+    f"{CYAN}{BOLD}║   {RESET} {YELLOW}Telegram Bot:{RESET} {GREEN}@HelpRootAppBot{RESET}     {CYAN}{BOLD}║{RESET}\n"
+    f"{CYAN}{BOLD}╠══════════════════════════════════════╣{RESET}\n"
+    f"{CYAN}{BOLD}║         {RESET} {YELLOW}Made By:{RESET} {GREEN}@HelpRoot{RESET}          {CYAN}{BOLD}║{RESET}\n"
+    f"{CYAN}{BOLD}╚══════════════════════════════════════╝{RESET}\n"
+)
+def check_telegram_join(user_id):
+    url = f"https://api.telegram.org/bot{BOT_TOKEN}/getChatMember"
+
+    try:
+        r = requests.get(url, params={
+            "chat_id": CHANNEL_USERNAME,
+            "user_id": user_id
+        }).json()
+
+        if r.get("ok"):
+            status = r["result"]["status"]
+            return status in ["member", "administrator", "creator"]
+
+    except Exception as e:
+        print(f"Telegram verify error: {e}")
+
+    return False
+    # ===== COLORS =====
+CYAN = "\033[96m"
+GREEN = "\033[92m"
+YELLOW = "\033[93m"
+RED = "\033[91m"
+WHITE = "\033[97m"
+BOLD = "\033[1m"
+RESET = "\033[0m"
+
+print(
+    f"\n{CYAN}{BOLD}╔══════════════════════════════════════╗{RESET}\n"
+    f"{CYAN}{BOLD}║{RESET}       {WHITE}{BOLD}TELEGRAM JOIN VERIFICATION{RESET}     {CYAN}{BOLD}║{RESET}\n"
+    f"{CYAN}{BOLD}╠══════════════════════════════════════╣{RESET}\n"
+    f"{CYAN}{BOLD}║        {RESET} Join: {GREEN}t.me/helproot{RESET}          {CYAN}{BOLD}║{RESET}\n"
+    f"{CYAN}{BOLD}╚══════════════════════════════════════╝{RESET}"
+)
+
+tg_id = input(f"{YELLOW}➤ Enter your Telegram User ID: {RESET}").strip()
+
+# empty check
+if not tg_id:
+    exit(f"{RED}❌ Telegram User ID required!{RESET}")
+
+if not check_telegram_join(tg_id):
+    exit(f"{RED}❌ You must join the Telegram channel first!{RESET}")
+
+print(f"{GREEN}✅ Telegram verification successful!{RESET}\n")
 
 User = "okhttp/4.12.0"
 headers = {"User-Agent": User}
@@ -31,12 +95,27 @@ def login():
     base_url = "https://account.xiaomi.com"
     sid = "18n_bbs_global"
 
-    user = input('\nEnter Mi Account ID: ')
-    pwd = input('\nEnter Mi Account PWD: ')
+    # ===== COLORS =====
+    CYAN = "\033[96m"
+    YELLOW = "\033[93m"
+    WHITE = "\033[97m"
+    BOLD = "\033[1m"
+    RESET = "\033[0m"
+
+    print(
+        f"\n{CYAN}{BOLD}╔══════════════════════════════════════╗{RESET}"
+        f"\n{CYAN}{BOLD}║{RESET}   {WHITE}{BOLD}     Mi Account LOGIN PANEL{RESET}        {CYAN}{BOLD}║{RESET}"
+        f"\n{CYAN}{BOLD}╚══════════════════════════════════════╝{RESET}"
+    )
+
+    user = input(f"{YELLOW}➤ Enter Mi ID:{RESET} ")
+    pwd = input(f"{YELLOW}➤ Enter Mi Pwd :{RESET} ")
+
     hash_pwd = hashlib.md5(pwd.encode()).hexdigest().upper()
     cookies = {}
 
-    def parse(res): return json.loads(res.text[11:])
+    def parse(res):
+        return json.loads(res.text[11:])
 
     r = requests.get(f"{base_url}/pass/serviceLogin", params={'sid': sid, '_json': True}, headers=headers, cookies=cookies)
     cookies.update(r.cookies.get_dict())
@@ -96,20 +175,65 @@ def login():
 try:
     with open('micdata.json') as f:
         micdata = json.load(f)
+
     if not all(micdata.get(k) for k in ("userId", "new_bbs_serviceToken", "region", "deviceId")):
         raise ValueError
-    print(f"\nAccount ID: {micdata['userId']}")
-    input("Press 'Enter' to continue.\nPress 'Ctrl' + 'd' to log out.")
+
+    # ===== COLORS =====
+    BLUE = "\033[94m"
+    YELLOW = "\033[93m"
+    WHITE = "\033[97m"
+    BOLD = "\033[1m"
+    RESET = "\033[0m"
+
+    account_id = micdata['userId']
+
+    print(
+        f"\n{BLUE}{BOLD}╔══════════════════════════════════════╗{RESET}\n"
+        f"{BLUE}{BOLD}║     {RESET} {WHITE}{BOLD} PREVIOUS ACCOUNT DETAILS{RESET}       {BLUE}{BOLD}║{RESET}\n"
+        f"{BLUE}{BOLD}╠══════════════════════════════════════╣{RESET}\n"
+        f"{BLUE}{BOLD}║       {RESET} {YELLOW}Account ID:{RESET} {WHITE}{account_id}{RESET}        {BLUE}{BOLD}║{RESET}\n"
+        f"{BLUE}{BOLD}╚══════════════════════════════════════╝{RESET}\n"
+    )
+
+    input(
+        f"{YELLOW}➤ Press {WHITE}Enter{RESET}{YELLOW} to continue | Ctrl + D to logout{RESET}\n"
+    )
+
 except (FileNotFoundError, json.JSONDecodeError, EOFError, ValueError):
     if os.path.exists('micdata.json'):
         os.remove('micdata.json')
+
     micdata = login()
 
 new_bbs_serviceToken = micdata["new_bbs_serviceToken"]
 
 deviceId = micdata["deviceId"]
 
-print(f"\nAccount Region: {micdata['region']}")
+region = micdata['region']
+
+# ===== COLORS =====
+BOX = "\033[95m"      # ← Yaha color change karo
+YELLOW = "\033[93m"
+WHITE = "\033[97m"
+BOLD = "\033[1m"
+RESET = "\033[0m"
+
+print(
+    f"\n{BOX}{BOLD}╔══════════════════════════════════════╗{RESET}"
+)
+print(
+    f"{BOX}{BOLD}║{RESET}          {WHITE}{BOLD}ACCOUNT INFORMATION{RESET}         {BOX}{BOLD}║{RESET}"
+)
+print(
+    f"{BOX}{BOLD}╠══════════════════════════════════════╣{RESET}"
+)
+print(
+    f"{BOX}{BOLD}║{RESET} {YELLOW}          Account Region:{RESET} {WHITE}{region}{RESET}         {BOX}{BOLD}║{RESET}"
+)
+print(
+    f"{BOX}{BOLD}╚══════════════════════════════════════╝{RESET}\n"
+)
 
 api = "https://sgp-api.buy.mi.com/bbs/api/global/"
 
@@ -125,33 +249,61 @@ headers = {
   'Cookie': f"new_bbs_serviceToken={new_bbs_serviceToken};versionCode={versionCode};versionName={versionName};deviceId={deviceId};"
 }
 
-print("\n[INFO]:")
+# ===== COLORS =====
+CYAN = "\033[96m"
+GREEN = "\033[92m"
+YELLOW = "\033[93m"
+RED = "\033[91m"
+WHITE = "\033[97m"
+BOLD = "\033[1m"
+RESET = "\033[0m"
+
+
+# ===== INFO BOX =====
 info = requests.get(U_info, headers=headers).json()['data']
 
-print(f"{info['registered_day']} days in Community")
-print(f"LV{info['level_info']['level']} {info['level_info']['level_title']}")
-print(f"{info['level_info']['max_value'] - info['level_info']['current_value']} more points to the next level")
-print(f"Points: {info['level_info']['current_value']}")
+print(
+    f"\n{CYAN}{BOLD}╔══════════════════════════════════════╗{RESET}\n"
+    f"{CYAN}{BOLD}║{RESET}            {WHITE}{BOLD}ACCOUNT INFO{RESET}              {CYAN}{BOLD}║{RESET}\n"
+    f"{CYAN}{BOLD}╠══════════════════════════════════════╣{RESET}\n"
+    f"{CYAN}{BOLD}║        {RESET} {YELLOW}Days in Community:{RESET} {WHITE}{info['registered_day']}{RESET}         {CYAN}{BOLD}║{RESET}\n"
+    f"{CYAN}{BOLD}║        {RESET} {YELLOW}Level:{RESET} {WHITE}LV{info['level_info']['level']} {info['level_info']['level_title']}{RESET}        {CYAN}{BOLD}║{RESET}\n"
+    f"{CYAN}{BOLD}║        {RESET} {YELLOW}Next Level Points:{RESET} {WHITE}{info['level_info']['max_value'] - info['level_info']['current_value']}{RESET}        {CYAN}{BOLD}║{RESET}\n"
+    f"{CYAN}{BOLD}║        {RESET} {YELLOW}Points:{RESET} {WHITE}{info['level_info']['current_value']}{RESET}                    {CYAN}{BOLD}║{RESET}\n"
+    f"{CYAN}{BOLD}╚══════════════════════════════════════╝{RESET}\n"
+)
+
 
 def state_request():
-    print("\n[STATE]:")
+    print(
+        f"{GREEN}{BOLD}╔══════════════════════════════════════╗{RESET}\n"
+        f"{GREEN}{BOLD}║{RESET}             {WHITE}{BOLD}ACCOUNT STATE{RESET}            {GREEN}{BOLD}║{RESET}\n"
+        f"{GREEN}{BOLD}╚══════════════════════════════════════╝{RESET}"
+    )
+
     try:
         state = requests.get(U_state, headers=headers).json().get("data", {})
         is_ = state.get("is_pass")
         button_ = state.get("button_state")
         deadline_ = state.get("deadline_format", "")
+
         if is_ == 1:
-            exit(f"You have been granted access to unlock until Beijing time {deadline_} (mm/dd/yyyy)\n")
+            exit(f"{GREEN}✔ Unlock access granted till {deadline_} (Beijing time){RESET}\n")
+
         msg = {
-            1: "Apply for unlocking\n",
-            2: f"Account Error Please try again after {deadline_} (mm/dd)\n",
-            3: "Account must be registered over 30 days\n"
+            1: f"{YELLOW}➤ Apply for bootloader unlocking{RESET}\n",
+            2: f"{RED}✖ Account Error, try again after {deadline_} (mm/dd){RESET}\n",
+            3: f"{RED}✖ Account must be registered over 30 days{RESET}\n"
         }
+
         print(msg.get(button_, ""))
+
         if button_ in [2, 3]:
             exit()
+
     except Exception as e:
-        exit(f"state: {e}")
+        exit(f"{RED}state: {e}{RESET}")
+
 
 state_request()
 
