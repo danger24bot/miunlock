@@ -381,7 +381,7 @@ def schedule_daily_task():
 
     while True:
         now = get_beijing_time()
-        target = now.replace(hour=23, minute=57, second=0, microsecond=0)
+        target = now.replace(hour=23, minute=59, second=59, microsecond=900)
         if now >= target:
             target += timedelta(days=1)
 
