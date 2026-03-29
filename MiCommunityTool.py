@@ -267,7 +267,7 @@ print(
     f"{CYAN}{BOLD}║{RESET}            {WHITE}{BOLD}ACCOUNT INFO{RESET}              {CYAN}{BOLD}║{RESET}\n"
     f"{CYAN}{BOLD}╠══════════════════════════════════════╣{RESET}\n"
     f"{CYAN}{BOLD}║        {RESET} {YELLOW}Days in Community:{RESET} {WHITE}{info['registered_day']}{RESET}        {CYAN}{BOLD}║{RESET}\n"
-    f"{CYAN}{BOLD}║        {RESET} {YELLOW}Level:{RESET} {WHITE}LV{info['level_info']['level']} {info['level_info']['level_title']}{RESET}     {CYAN}{BOLD}║{RESET}\n"
+    f"{CYAN}{BOLD}║        {RESET} {YELLOW}Level:{RESET} {WHITE}LV{info['level_info']['level']} {info['level_info']['level_title']}{RESET}    {CYAN}{BOLD}║{RESET}\n"
     f"{CYAN}{BOLD}║        {RESET} {YELLOW}Next Level Points:{RESET} {WHITE}{info['level_info']['max_value'] - info['level_info']['current_value']}{RESET}      {CYAN}{BOLD}║{RESET}\n"
     f"{CYAN}{BOLD}║        {RESET} {YELLOW}Points:{RESET} {WHITE}{info['level_info']['current_value']}{RESET}                  {CYAN}{BOLD}║{RESET}\n"
     f"{CYAN}{BOLD}╚══════════════════════════════════════╝{RESET}\n"
